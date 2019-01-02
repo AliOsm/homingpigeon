@@ -1,0 +1,48 @@
+<header>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <div class="container-fluid">
+      <%= link_to(root_path, class: 'navbar-brand') do %>
+        <%= image_tag('logo.svg', class: 'img-fluid', width: '36', onerror: "this.onerror=null; this.src='logo.png'") %> <span class="align-middle">HomingPigeon</span>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item <%= 'active' if controller_name == 'registrations' %>">
+              <%= link_to(edit_user_registration_path, class: 'nav-link') do %>
+                <%= icon('fas', 'cog', 'Account Settings') %>
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to(destroy_user_session_path, class: 'nav-link', method: :delete) do %>
+                <%= icon('fas', 'sign-out-alt', 'Sign out') %>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item <%= 'active' if controller_name == 'sessions' %>">
+              <%= link_to(new_user_session_path, class: 'nav-link') do %>
+                <%= icon('fas', 'sign-in-alt', 'Sign in') %>
+              <% end %>
+            </li>
+
+            <li class="nav-item <%= 'active' if controller_name == 'registrations' %>">
+              <%= link_to(new_user_registration_path, class: 'nav-link') do %>
+                <%= icon('fas', 'user-plus', 'Sign up') %>
+              <% end %>
+            </li>
+          <% end %>
+
+          <li class="nav-item <%= 'active' if action_name == 'about' %>">
+            <%= link_to(about_path, class: 'nav-link') do %>
+              <%= icon('fas', 'info-circle', 'About') %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
