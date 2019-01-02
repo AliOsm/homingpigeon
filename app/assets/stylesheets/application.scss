@@ -20,6 +20,10 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+* {
+  outline: none !important;
+}
+
 body {
   padding-top: 106px;
 }

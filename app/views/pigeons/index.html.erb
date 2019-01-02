@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-10">
+    <div class="card">
+      <h2 class="card-header">
+        Your Pigeons
+      </h2>
+      <div class="card-body pr-0 pl-0 pt-0 pb-0">
+        <% if @pigeons.blank? %>
+          <p class="lead text-center mt-3">You have no pigeons <%= icon('far', 'frown') %></p>
+          <p class="text-center"><%= link_to 'Create one right now!', new_pigeon_path, class: 'btn btn-primary' %></p>
+        <% else %>
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Token</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @pigeons.each do |pigeon| %>
+                <tr>
+                  <td><%= pigeon.name %></td>
+                  <% unless pigeon.description.blank? %>
+                    <td><%= pigeon.description[0..50] %>...</td>
+                  <% else %>
+                    <td>No description</td>
+                  <% end %>
+                  <td><%= pigeon.token %></td>
+                  <td class="text-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <%= link_to 'Show', pigeon, class: 'btn btn-sm btn-primary' %>
+                      <%= link_to 'Edit', edit_pigeon_path(pigeon), class: 'btn btn-sm btn-success' %>
+                      <%= link_to 'Destroy', pigeon, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'New Pigeon', new_pigeon_path %>
+      </div>
+    </div>
+  </div>
+</div>

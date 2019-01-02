@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-4">
+    <div class="card">
+      <h2 class="card-header">
+        Pigeon <%= @pigeon.name %>
+      </h2>
+      <div class="card-body">
+        <h5 class="card-title">Description</h5>
+        <p class="card-text">
+          <% unless @pigeon.description.blank? %>
+            <td><%= @pigeon.description %></td>
+          <% else %>
+            <td>No description</td>
+          <% end %>
+        </p>
+        <hr>
+        <h5 class="card-title">Token</h5>
+        <p class="card-text">
+          <%= text_field_tag :token, @pigeon.token, class: 'form-control' %>
+          <small class="form-text text-muted">Use this token securely and do not give it to anyone!</small>
+        </p>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'Edit Pigeon', edit_pigeon_path(@pigeon) %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
+            <li class="nav-item <%= 'active' if controller_name == 'pigeons' && action_name != 'new' %>">
+              <%= link_to(pigeons_path, class: 'nav-link') do %>
+                <%= icon('fas', 'dove', 'My Pigeons') %>
+              <% end %>
+            </li>
+
+            <li class="nav-item <%= 'active' if controller_name == 'pigeons' && action_name == 'new' %>">
+              <%= link_to(new_pigeon_path, class: 'nav-link') do %>
+                <%= icon('fas', 'plus', 'New Pigeon') %>
+              <% end %>
+            </li>
+
             <li class="nav-item <%= 'active' if controller_name == 'registrations' %>">
               <%= link_to(edit_user_registration_path, class: 'nav-link') do %>
                 <%= icon('fas', 'cog', 'Account Settings') %>
