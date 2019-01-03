@@ -15,6 +15,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Token</th>
+                <th>Messages</th>
                 <th class="text-center">Actions</th>
               </tr>
             </thead>
@@ -29,6 +30,7 @@
                     <td>No description</td>
                   <% end %>
                   <td><%= pigeon.token %></td>
+                  <td><%= pigeon.pigeon_messages_count %></td>
                   <td class="text-center">
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <%= link_to 'Show', pigeon, class: 'btn btn-sm btn-primary' %>

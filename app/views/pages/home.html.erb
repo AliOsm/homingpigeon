@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-10">
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, Pigeon-Breeders!</h1>
+      <p class="lead">Homing Pigeons are very useful, they can carry your information from anywhere to anywhere with <span style="font-size:25px">0</span> cost!</p>
+      <hr class="my-4">
+      <p>You can try them right now and for free!</p>
+      <% if user_signed_in? %>
+        <%= link_to 'Create Pigeon', new_pigeon_path, class: 'btn btn-primary btn-lg' %>
+      <% else %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+</div>

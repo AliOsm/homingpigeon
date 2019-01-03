@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
-  has_many :pigeons
+  has_many :pigeons, dependent: :destroy
+  has_many :pigeon_messages, dependent: :destroy
 end

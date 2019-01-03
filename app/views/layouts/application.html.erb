@@ -12,9 +12,14 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container-fluid">
-      <%= render 'layouts/messages' %>
-      <%= yield %>
+    
+    <div id="content">
+      <div class="container-fluid">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
     </div>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>

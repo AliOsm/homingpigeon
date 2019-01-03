@@ -2,6 +2,7 @@ class Pigeon < ApplicationRecord
   before_save :set_token
 
   belongs_to :user
+  has_many :pigeon_messages, dependent: :destroy
 
   validates_presence_of :name
   validates_length_of :name, minimum: 3, maximum: 16

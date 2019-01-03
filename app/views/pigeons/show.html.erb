@@ -8,9 +8,9 @@
         <h5 class="card-title">Description</h5>
         <p class="card-text">
           <% unless @pigeon.description.blank? %>
-            <td><%= @pigeon.description %></td>
+            <%= @pigeon.description %>
           <% else %>
-            <td>No description</td>
+            No description
           <% end %>
         </p>
         <hr>
@@ -19,9 +19,45 @@
           <%= text_field_tag :token, @pigeon.token, class: 'form-control' %>
           <small class="form-text text-muted">Use this token securely and do not give it to anyone!</small>
         </p>
+        <hr>
+        <h5 class="card-title">Created at</h5>
+        <p class="card-text">
+          <%= @pigeon.created_at.strftime('%Y %b %d at %H:%M') %>
+        </p>
+        <hr>
+        <h5 class="card-title">Last update</h5>
+        <p class="card-text">
+          <%= @pigeon.updated_at.strftime('%Y %b %d at %H:%M') %>
+        </p>
       </div>
       <div class="card-footer">
         <%= link_to 'Edit Pigeon', edit_pigeon_path(@pigeon) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <h2 class="card-header">
+        <%= @pigeon.name %>'s Messages (<%= @pigeon.pigeon_messages_count %>)
+      </h2>
+      <div class="card-body">
+        <% if @pigeon_messages.blank? %>
+          <p class="lead text-center mt-3">This pigeon has no messages <%= icon('far', 'frown') %></p>
+        <% else %>
+          <% @pigeon_messages.each_with_index do |pigeon_message, index| %>
+            <h5 class="card-title">Message information</h5>
+            <p class="card-text"><%= pigeon_message.information %></p>
+            <h5 class="card-title">Arrived at</h5>
+            <p class="card-text">
+              <%= pigeon_message.created_at.strftime('%Y %b %d at %H:%M') %>
+            </p>
+
+            <% if index != @pigeon_messages.size - 1 %>
+              <hr>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

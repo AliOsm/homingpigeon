@@ -1,4 +1,6 @@
 class PigeonsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_pigeon, only: [:show, :edit, :update, :destroy]
 
   # GET /pigeons
@@ -10,6 +12,7 @@ class PigeonsController < ApplicationController
   # GET /pigeons/1
   # GET /pigeons/1.json
   def show
+    @pigeon_messages = @pigeon.pigeon_messages.order(created_at: :desc)
   end
 
   # GET /pigeons/new
