@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_191629) do
+ActiveRecord::Schema.define(version: 2019_01_04_220721) do
 
   create_table "pigeon_messages", force: :cascade do |t|
     t.text "information"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2019_01_03_191629) do
     t.datetime "updated_at", null: false
     t.integer "pigeon_messages_count", default: 0
     t.index ["user_id"], name: "index_pigeons_on_user_id"
+  end
+
+  create_table "shared_pigeons", force: :cascade do |t|
+    t.integer "pigeon_id"
+    t.integer "user_id"
+    t.integer "access", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pigeon_id"], name: "index_shared_pigeons_on_pigeon_id"
+    t.index ["user_id"], name: "index_shared_pigeons_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

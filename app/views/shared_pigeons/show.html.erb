@@ -16,7 +16,11 @@
         <hr>
         <h5 class="card-title">Token</h5>
         <p class="card-text">
-          <%= text_field_tag :token, @pigeon.token, class: 'form-control' %>
+          <% if @shared_pigeon.full_access? %>
+            <%= text_field_tag :token, @pigeon.token, class: 'form-control' %>
+          <% else %>
+            <%= text_field_tag :token, '-', class: 'form-control' %>
+          <% end %>
           <small class="form-text text-muted">Use this token securely and do not give it to anyone!</small>
         </p>
         <hr>
@@ -29,47 +33,6 @@
         <p class="card-text">
           <%= @pigeon.updated_at.strftime('%Y %b %d at %H:%M') %>
         </p>
-      </div>
-      <div class="card-footer">
-        <%= link_to 'Edit Pigeon', edit_pigeon_path(@pigeon) %>
-        &middot;
-        <%= link_to 'Share Pigeon', new_pigeon_shared_pigeon_path(@pigeon) %>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 class="card-header">
-        Shared with (<%= @shared_pigeons.size %>)
-      </h2>
-      <div class="card-body pr-0 pl-0 pt-0 pb-0">
-        <% if @shared_pigeons.blank? %>
-          <p class="lead text-center mt-3">This pigeon has not yet been shared <%= icon('far', 'frown') %></p>
-          <p class="text-center"><%= link_to 'Share it right now!', new_pigeon_shared_pigeon_path(@pigeon), class: 'btn btn-primary' %></p>
-        <% else %>
-          <table class="table table-hover mb-0">
-            <thead>
-              <tr>
-                <th>User</th>
-                <th>Access</th>
-                <th class="text-center">Actions</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @shared_pigeons.each do |shared_pigeon| %>
-                <tr>
-                  <td><%= shared_pigeon.user.email %></td>
-                  <td><%= shared_pigeon.access %></td>
-                  <td class="text-center">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                      <%= link_to 'Unshare', pigeon_shared_pigeon_path(@pigeon, shared_pigeon), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-                    </div>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        <% end %>
       </div>
     </div>
   </div>

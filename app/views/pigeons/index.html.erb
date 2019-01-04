@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="col-12 col-lg-10">
-    <div class="card">
+    <div class="card mb-4">
       <h2 class="card-header">
         Your Pigeons
       </h2>
@@ -36,6 +36,7 @@
                       <%= link_to 'Show', pigeon, class: 'btn btn-sm btn-primary' %>
                       <%= link_to 'Edit', edit_pigeon_path(pigeon), class: 'btn btn-sm btn-success' %>
                       <%= link_to 'Destroy', pigeon, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                      <%= link_to 'Share Pigeon', new_pigeon_shared_pigeon_path(pigeon), class: 'btn btn-sm btn-default' %>
                     </div>
                   </td>
                 </tr>
@@ -46,6 +47,52 @@
       </div>
       <div class="card-footer">
         <%= link_to 'New Pigeon', new_pigeon_path %>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-header">
+        Shared with You
+      </h2>
+      <div class="card-body pr-0 pl-0 pt-0 pb-0">
+        <% if @shared_pigeons.blank? %>
+          <p class="lead text-center mt-3">No one share pigeon with you <%= icon('far', 'frown') %></p>
+        <% else %>
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Token</th>
+                <th>Messages</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @shared_pigeons.each do |shared_pigeon| %>
+                <tr>
+                  <td><%= shared_pigeon.user.email %></td>
+                  <td><%= shared_pigeon.pigeon.name %></td>
+                  <% unless shared_pigeon.pigeon.description.blank? %>
+                    <td><%= shared_pigeon.pigeon.description[0..50] %>...</td>
+                  <% else %>
+                    <td>No description</td>
+                  <% end %>
+                  <td><%= shared_pigeon.full_access? ? shared_pigeon.pigeon.token : '-' %></td>
+                  <td><%= shared_pigeon.pigeon.pigeon_messages_count %></td>
+                  <td class="text-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <%= link_to 'Show Messages', pigeon_shared_pigeon_path(shared_pigeon.pigeon, shared_pigeon), class: 'btn btn-sm btn-primary' %>
+                      <%= link_to 'Unshare', pigeon_shared_pigeon_path(shared_pigeon.pigeon, shared_pigeon), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
       </div>
     </div>
   </div>

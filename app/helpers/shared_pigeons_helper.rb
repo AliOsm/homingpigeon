@@ -1,0 +1,2 @@
+module SharedPigeonsHelper
+end

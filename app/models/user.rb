@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   has_many :pigeons, dependent: :destroy
   has_many :pigeon_messages, dependent: :destroy
+  has_many :shared_pigeons, dependent: :destroy
 end

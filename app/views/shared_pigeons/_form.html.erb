@@ -1,0 +1,13 @@
+<%= simple_form_for([@pigeon, @shared_pigeon]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id, placeholder: 'The unique user id' %>
+    <%= f.input :access, collection: [['Messages Only', :messages_only], ['Full Access', :full_access]], selected: 0 %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Share Pigeon', class: 'btn btn-primary' %>
+  </div>
+<% end %>

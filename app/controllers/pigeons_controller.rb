@@ -6,13 +6,15 @@ class PigeonsController < ApplicationController
   # GET /pigeons
   # GET /pigeons.json
   def index
-    @pigeons = Pigeon.all
+    @pigeons = current_user.pigeons
+    @shared_pigeons = current_user.shared_pigeons
   end
 
   # GET /pigeons/1
   # GET /pigeons/1.json
   def show
     @pigeon_messages = @pigeon.pigeon_messages.order(created_at: :desc)
+    @shared_pigeons = @pigeon.shared_pigeons.order(created_at: :desc)
   end
 
   # GET /pigeons/new
