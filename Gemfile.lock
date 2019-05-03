@@ -47,17 +47,17 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.4.3)
+    autoprefixer-rails (9.5.1)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
-    bootstrap (4.2.1)
+    bootstrap (4.3.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    bootswatch (4.2.1)
+    bootswatch (4.3.1)
       autoprefixer-rails (>= 6.0.3)
     builder (3.2.3)
     byebug (10.0.2)
@@ -83,7 +83,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
-    devise (4.5.0)
+    devise (4.6.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 6.0)
@@ -164,9 +164,9 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.3.0)
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.7.2)
@@ -183,7 +183,7 @@ GEM
     sassc (2.0.0)
       ffi (~> 1.9.6)
       rake
-    sassc-rails (2.1.0)
+    sassc-rails (2.1.1)
       railties (>= 4.0.0)
       sassc (>= 2.0)
       sprockets (> 3.0)
@@ -236,13 +236,13 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap (~> 4.2.1)
-  bootswatch (~> 4.2.1)
+  bootstrap (~> 4.3.1)
+  bootswatch (~> 4.3.1)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-  devise (= 4.5.0)
+  devise (= 4.6.0)
   font-awesome-sass (~> 5.6.1)
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3.3)
@@ -262,7 +262,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.6.0p0
 
 BUNDLED WITH
-   1.16.2
+   1.17.2
