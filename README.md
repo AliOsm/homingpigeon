@@ -1,4 +1,4 @@
-# homingpigeon
+# Homing Pigeon
 
 Simple web application allows you to monitor your experiments results remotly.
 
