@@ -1,24 +1,15 @@
-# README
+# homingpigeon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple web application allows you to monitor your experiments results remotly.
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+First of all you need to register for a new account on the [application](https://homingpigeon.herokuapp.com) and confirm your email. Then using your account, create a new pigeon and get the pigeon `token`.
 
-* System dependencies
+For Python users you can use this [library](https://github.com/AliOsm/homingpigeon-python) which is allow you to use the application in one line of code.
 
-* Configuration
+For other languages, simply you can make a `GET` request to the following URL using the pigeon `token`:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+https://homingpigeon.herokuapp.com/:token:?information=:your_text:
+```
