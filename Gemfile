@@ -12,7 +12,7 @@ gem 'jquery-rails', '~> 4.3.3'
 # Use FontAwesome as default font icon
 gem 'font-awesome-sass', '~> 5.6.1'
 # Use simple_form to generate simple forms!
-gem 'simple_form', '~> 4.1.0'
+gem 'simple_form', '~> 5.0.0'
 # Use Devise as default authentication system
 gem 'devise', '4.6.0'
 
