@@ -14,7 +14,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 # Use simple_form to generate simple forms!
 gem 'simple_form', '~> 4.1.0'
 # Use Devise as default authentication system
-gem 'devise', '4.6.0'
+gem 'devise', '4.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
